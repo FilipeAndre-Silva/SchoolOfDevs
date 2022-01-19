@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SchoolOfDevs.Helpers;
+using SchoolOfDevs.Middleware;
 using SchoolOfDevs.Services;
 using SchoolOfDevs.Services.Interfaces;
 
@@ -28,6 +29,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ErroHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 
