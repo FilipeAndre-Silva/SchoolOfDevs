@@ -49,6 +49,8 @@ namespace SchoolOfDevs.Services
                 throw new Exception($"Note {id} not found");
             }
 
+            noteIn.CreatedAt = noteDb.CreatedAt;
+
             _context.Entry(noteIn).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }

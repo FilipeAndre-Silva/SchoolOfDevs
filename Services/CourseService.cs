@@ -49,6 +49,8 @@ namespace SchoolOfDevs.Services
                 throw new Exception($"Course {id} not found");
             }
 
+            courseIn.CreatedAt = courseDb.CreatedAt;
+
             _context.Entry(courseIn).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
